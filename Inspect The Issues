@@ -1,0 +1,4 @@
+print("Missing values:\n", df.isnull().sum())
+print("\nDuplicate rows:", df.duplicated().sum())
+print("\nUnique countries:", df['customer_country'].unique())
+print("\nUnique order statuses:", df['order_status'].unique())

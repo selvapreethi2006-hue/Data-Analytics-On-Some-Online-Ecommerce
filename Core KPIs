@@ -1,0 +1,7 @@
+total_revenue = sales_df['net_amount'].sum()
+total_orders = sales_df['order_id'].nunique()
+aov = total_revenue / total_orders
+
+print(f"Total Revenue: ${total_revenue:,.2f}")
+print(f"Total Orders: {total_orders:,}")
+print(f"Average Order Value: ${aov:,.2f}")

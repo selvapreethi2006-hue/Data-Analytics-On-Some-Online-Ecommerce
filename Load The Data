@@ -1,0 +1,4 @@
+df = pd.read_csv('ecommerce_orders.csv')
+print("Shape:", df.shape)
+print(df.head())
+print(df.dtypes)

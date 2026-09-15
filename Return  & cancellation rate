@@ -1,0 +1,2 @@
+return_rate = df['is_returned_or_cancelled'].mean() * 100
+print(f"{return_rate:.2f}% of all orders are returned or cancelled")

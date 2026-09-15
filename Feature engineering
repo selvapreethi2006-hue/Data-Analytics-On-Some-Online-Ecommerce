@@ -1,0 +1,5 @@
+df['order_month'] = df['order_date'].dt.to_period('M').astype(str)
+df['order_weekday'] = df['order_date'].dt.day_name()
+df['is_returned_or_cancelled'] = df['order_status'].isin(['Returned', 'Cancelled'])
+
+sales_df = df[df['order_status'] == 'Completed'].copy()

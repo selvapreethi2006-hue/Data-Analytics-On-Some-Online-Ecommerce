@@ -1,0 +1,17 @@
+df = df.drop_duplicates()
+
+df['customer_country'] = df['customer_country'].replace({
+    'U.S.A': 'USA',
+    'United Kingdom': 'UK'
+})
+
+df['order_date'] = pd.to_datetime(df['order_date'])
+
+mask = df['discount_pct'].isna()
+df.loc[mask, 'discount_pct'] = (df.loc[mask, 'discount_amount'] / df.loc[mask, 'gross_amount'] * 100).round(1)
+
+assert (df['quantity'] > 0).all()
+assert (df['net_amount'] >= 0).all()
+
+print("Cleaned shape:", df.shape)
+print("Remaining missing values:", df.isnull().sum().sum())
